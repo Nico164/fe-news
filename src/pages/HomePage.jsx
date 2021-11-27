@@ -1,18 +1,19 @@
 import React, { useEffect, useState } from "react"
 import axios from "axios"
-import {ReactComponent as Loading} from "../loading.svg"
+import { ReactComponent as Loading } from "../loading.svg"
+import { Fragment } from "react"
 
 const HomePage = () => {
     const [news, setNews] = useState([])
     useEffect(() => {
-        const getNews =async () => {
-            const {data} = await axios.get("http://localhost:8080/posts")
+        const getNews = async () => {
+            const { data } = await axios.get("http://localhost:8080/posts")
             setNews(data.data)
         }
         getNews()
-    }, []) 
+    }, [])
     return (
-        <div>
+        <div className="container mt-3">
             {
                 news.length === 0 && (
                     <Loading />
@@ -22,8 +23,12 @@ const HomePage = () => {
             {
                 news.length > 0 && (
                     <div>
-                        {news.map( (item, index) => (
-                            <p key={index}>{item.title}</p>
+                        {news.map((item, index) => (
+                            <Fragment>
+                                <h3 key={index}>{item.title}</h3>
+                                <hr />
+                                <p>{item.description}</p>
+                            </Fragment>
                         ))}
                     </div>
                 )
