@@ -26,7 +26,7 @@ const HomePage = () => {
                         {news.map((item, index) => (
                             <Fragment>
                                 <h3 key={index}>{item.title}</h3>
-                                <hr />
+                                <img width="500" height="500" src={item.images} alt={item.title}/>
                                 <p>{item.description}</p>
                             </Fragment>
                         ))}
