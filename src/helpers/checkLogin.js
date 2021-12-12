@@ -1,4 +1,4 @@
-const hasLogin = async () => {
+const hasLogin = () => {
     try{
        const tokenWeb = localStorage.getItem("token")
        console.log(tokenWeb)
