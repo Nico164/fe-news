@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react"
 import axios from "axios"
 import { ReactComponent as Loading } from "../loading.svg"
 import { Fragment } from "react"
-import { useHistory } from "react-router-dom"
+import { Link, useHistory } from "react-router-dom"
 
 const AuthPage = () => {
     const history = useHistory();
@@ -62,6 +62,7 @@ const AuthPage = () => {
                     </div>
                 </div>
                 <button type="submit" className="btn btn-primary" disabled={isLoading}>Login</button>
+                <p>No acoount? Register now <Link to ="/register">here</Link></p>
             </form>
         </div>
     )
