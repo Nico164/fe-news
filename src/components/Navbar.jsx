@@ -1,20 +1,21 @@
 import React, { Fragment, useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import {hasLogin} from "../helpers/checkLogin"
 
 export const Navbar = () => {
-    console.log(hasLogin(), "haslogin")
+    const history = useHistory()
     const [hasToken, setHasToken] = useState(false)
     useEffect(()=> {
         const token = hasLogin
         setHasToken(token)
     },[hasToken])
+
     const doLogout = () => {
-        window?.localSorage?.clear()
+        window?.localStorage?.clear()
         setHasToken(false)
-        
-        console.log("test")
+        history.replace('/')
     }
+    
     return (
         <Fragment>
             {JSON.stringify(hasToken)}

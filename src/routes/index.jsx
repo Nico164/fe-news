@@ -4,6 +4,7 @@ import { Navbar } from "../components/Navbar";
 import HomePage from "../pages/HomePage";
 import AuthPage from "../pages/AuthPage";
 import ProfilePage from "../pages/ProfilePage";
+import RegisterPage from "../pages/RegisterPage";
 
 const Routes = () => {
     return(
@@ -15,6 +16,9 @@ const Routes = () => {
                 </Route>
                 <Route path="/auth">
                     <AuthPage />
+                </Route>
+                <Route path="/register">
+                    <RegisterPage />
                 </Route>
                 {/* must login */}
                 <Route path="/profile">
