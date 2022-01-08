@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react"
 import axios from "axios"
 import { ReactComponent as Loading } from "../loading.svg"
 import { Fragment } from "react"
+import SlideShow from "../components/SlideShow"
 
 const HomePage = () => {
     const [news, setNews] = useState([])
@@ -13,6 +14,8 @@ const HomePage = () => {
         getNews()
     }, [])
     return (
+        <Fragment>
+            <SlideShow />
         <div className="container mt-3">
             {
                 news.length === 0 && (
@@ -35,6 +38,7 @@ const HomePage = () => {
             }
             home
         </div>
+        </Fragment>
     )
 }
 

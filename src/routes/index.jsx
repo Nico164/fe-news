@@ -5,6 +5,7 @@ import HomePage from "../pages/HomePage";
 import AuthPage from "../pages/AuthPage";
 import ProfilePage from "../pages/ProfilePage";
 import RegisterPage from "../pages/RegisterPage";
+import Footer from "../components/Footer";
 
 
 const Routes = () => {
@@ -26,6 +27,7 @@ const Routes = () => {
                     <ProfilePage />
                 </Route>
             </Switch>
+            <Footer/>
         </Router>
     )
 }
