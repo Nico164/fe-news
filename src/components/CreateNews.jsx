@@ -1,11 +1,16 @@
 import axios from "axios"
 import React, { Fragment, useState } from "react"
+import {useHotkeys} from "react-hotkeys-hook"
+
 
 
 const CreateNews = ({ setActiveMenu }) => {
     const [title, setTitle] = useState("")
     const [description, setDescription] = useState("")
     const [isLoading, setIsLoading] = useState(false)
+
+    const [count, setCount] = useState(0)
+    
 
     const addPost = async (e) => {
         e.preventDefault()
@@ -29,8 +34,14 @@ const CreateNews = ({ setActiveMenu }) => {
 
         }
     }
+    useHotkeys('ctrl+s', (e) => {
+        addPost (e)
+    }, {
+        enableOnTags: ["TEXTAREA"]
+    })
     return (
         <Fragment>
+            {JSON.stringify(count)}
             <form onSubmit={addPost}>
                 <div className="mb-3">
                     <label htmlFor="title" className="form-label">title</label>

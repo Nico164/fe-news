@@ -1,6 +1,7 @@
 import React, { Fragment, useEffect, useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 import {hasLogin} from "../helpers/checkLogin"
+import {useHotkeys} from "react-hotkeys-hook"
 
 export const Navbar = () => {
     const history = useHistory()
@@ -16,6 +17,12 @@ export const Navbar = () => {
         history.replace('/')
     }
 
+    useHotkeys('p', (e) => {
+        window.location = '/profile'
+    })
+    useHotkeys('l', (e) => {
+        doLogout ()
+    })
 
     return (
         <Fragment>
